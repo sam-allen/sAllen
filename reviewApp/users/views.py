@@ -27,10 +27,16 @@ def profile(request):
 		u_form = UserUpdateForm(request.POST, instance = request.user)
 		p_form = ProfileUpdateForm(request.POST, request.FILES, instance = request.user.profile)
 
-		if u_form.is_valid and p_form.is_valid:
+		if u_form.is_valid():
 			u_form.save()
+			messages.success(request, f'The details of your Account have been amended')
+
+			return redirect('profile')
+		if p_form.is_valid():
 			p_form.save()
 			messages.success(request, f'The details of your Account have been amended')
+
+			return redirect('profile')
 
 	else:
 		u_form = UserUpdateForm(instance = request.user)

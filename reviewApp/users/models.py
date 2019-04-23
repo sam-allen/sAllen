@@ -14,6 +14,9 @@ class Profile(models.Model):
 	city = models.CharField(default = '', max_length = 100)
 	country = models.CharField(default = '', max_length = 100)
 
+	def full_name(self):
+		return f'{self.first_name} {self.last_name}'
+
 	def __str__(self):
 		return f'Profile for {self.user.username}'
 

@@ -7,6 +7,10 @@
 		<h2>{{ user.profile }}</h2>
 		<p class="text-secondary">{{ user.username }}</p>
 		<p class="text-secondary">{{ user.email }}</p>
+		<p class="text-secondary">{{ user.profile.full_name }}</p>
+		<p class="text-secondary">{{ user.profile.address }}</p>
+		<p class="text-secondary">{{ user.profile.city }}</p>
+		<p class="text-secondary">{{ user.profile.country }}</p>
 	</div>
 </div>
 <form method="POST">
