@@ -13,3 +13,4 @@ def contact(request):
 def products(request):
 	return render(request, 'reviews/products.html', {'title':'Our Products'})
 
+
