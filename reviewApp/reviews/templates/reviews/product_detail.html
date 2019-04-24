@@ -1,0 +1,27 @@
+{% extends "reviews/base.html" %}
+{% block content %}
+<h1>Product Details</h1>
+
+<div class="card">
+	<h2>{{ object.name }}</h2>
+	<img src="{{ object.image.url }}" class="w-25">
+	<p>Description: {{ object.description }}</p>
+	<p>Brand: {{ object.brand }}</p>
+	<p>Category: {{ object.category }}</p>
+	<p>Average Cost: £{{ object.avg_cost }}</p>
+	<p>Date Released: {{ object.date_released }}</p>
+</div>
+
+<h2>Reviews of this Product</h2>
+{% for review in object.review_set.all %}
+<div class="card">
+	{{ review }}
+	<img src="{{ review.author.profile.image.url }}" class="w-25">
+	<p>Author: {{ review.author }}</p>
+	<p>Rating /5: {{ review.rating }}</p>
+	<p>Review Text: {{ review.review_text }}</p>
+	<p>Date: {{ review.date }}</p>
+</div>
+{% endfor %}
+
+{% endblock content %}
