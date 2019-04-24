@@ -1,0 +1,17 @@
+{% extends "reviews/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+<form method="POST">
+	{% csrf_token %}
+	<fieldset class="form-group">
+		{{ form|crispy }}
+	</fieldset>
+	<div class="form-group">
+		<button class="btn btn-outline-info" type="submit">Add Review</button>
+	</div>
+</form>
+</div>
+
+{% endblock content %}

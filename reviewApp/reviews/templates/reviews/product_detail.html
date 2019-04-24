@@ -12,6 +12,8 @@
 	<p>Date Released: {{ object.date_released }}</p>
 </div>
 
+<div><a href="{% url 'review-create' %}" class="btn btn-outline-primary">Create a Review</a></div>
+
 <h2>Reviews of this Product</h2>
 {% for review in object.review_set.all %}
 <div class="card">

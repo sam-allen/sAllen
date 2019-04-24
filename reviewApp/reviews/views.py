@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Product, Review
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
@@ -23,9 +24,11 @@ class ProductDetailView(DetailView):
 
 class ReviewDetailView(DetailView):
 	model = Review
-# def products(request):
-# 	products_list = {
-# 		'products': Product.objects.all()
-# 	}
 
-# 	return render(request, 'reviews/products.html', products_list)
+class ReviewCreateView(LoginRequiredMixin, CreateView):
+	model = Review
+	fields = ['product','rating', 'review_text', 'date']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
