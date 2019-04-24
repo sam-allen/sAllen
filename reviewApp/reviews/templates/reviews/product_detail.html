@@ -10,9 +10,8 @@
 	<p>Category: {{ object.category }}</p>
 	<p>Average Cost: £{{ object.avg_cost }}</p>
 	<p>Date Released: {{ object.date_released }}</p>
+	<div><a href="{% url 'review-create' %}" class="btn btn-outline-primary">Create a Review</a></div>
 </div>
-
-<div><a href="{% url 'review-create' %}" class="btn btn-outline-primary">Create a Review</a></div>
 
 <h2>Reviews of this Product</h2>
 {% for review in object.review_set.all %}
@@ -23,6 +22,8 @@
 	<p>Rating /5: {{ review.rating }}</p>
 	<p>Review Text: {{ review.review_text }}</p>
 	<p>Date: {{ review.date }}</p>
+	<a href="{% url 'review-update' review.id %}">Update</a>
+	<a href="{% url 'review-delete' review.id %}">Delete</a>
 </div>
 {% endfor %}
 

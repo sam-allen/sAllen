@@ -1,0 +1,16 @@
+{% extends "reviews/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+<form method="POST">
+	{% csrf_token %}
+	<div class="form-group">
+		<button class="btn btn-outline-danger" type="submit">Delete Review</button>
+		<a href="{% url 'review-detail' object.id %}" class="btn btn-outline-info">Cancel Delete</a>
+	</div>
+	</div>
+</form>
+</div>
+
+{% endblock content %}

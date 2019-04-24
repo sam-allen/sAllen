@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from users import views as user_views
-from .views import ProductListView, ProductDetailView, ReviewDetailView, ReviewCreateView
+from .views import ProductListView, ProductDetailView, ReviewDetailView, ReviewCreateView, ReviewUpdateView, ReviewDeleteView
 
 urlpatterns = [
     path('', views.home, name='reviews-home'),
@@ -13,4 +13,6 @@ urlpatterns = [
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
     path('reviews/add/', ReviewCreateView.as_view(), name='review-create'),
+    path('reviews/<int:pk>/update/', ReviewUpdateView.as_view(), name='review-update'),
+    path('reviews/<int:pk>/delete/', ReviewDeleteView.as_view(), name='review-delete'),
 ]
