@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Product
+from .models import Product, Review
 from django.views.generic import ListView, DetailView
 
 # Create your views here.
@@ -21,6 +21,8 @@ class ProductListView(ListView):
 class ProductDetailView(DetailView):
 	model = Product
 
+class ReviewDetailView(DetailView):
+	model = Review
 # def products(request):
 # 	products_list = {
 # 		'products': Product.objects.all()

@@ -15,7 +15,7 @@
 <h2>Reviews of this Product</h2>
 {% for review in object.review_set.all %}
 <div class="card">
-	{{ review }}
+	<p><a href="{% url 'review-detail' review.id %}">{{ review }}</a></p>
 	<img src="{{ review.author.profile.image.url }}" class="w-25">
 	<p>Author: {{ review.author }}</p>
 	<p>Rating /5: {{ review.rating }}</p>

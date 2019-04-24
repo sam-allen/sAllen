@@ -1,0 +1,14 @@
+{% extends "reviews/base.html" %}
+{% block content %}
+<h1>Review</h1>
+
+<div class="card">
+	{{ review }}
+	<img src="{{ review.author.profile.image.url }}" class="w-25">
+	<p>Author: {{ review.author }}</p>
+	<p>Rating /5: {{ review.rating }}</p>
+	<p>Review Text: {{ review.review_text }}</p>
+	<p>Date: {{ review.date }}</p>
+</div>
+
+{% endblock content %}
