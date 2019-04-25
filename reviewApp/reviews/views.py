@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Product, Review
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .forms import ContactForm
 
 # Create your views here.
 def home(request):
@@ -11,7 +12,8 @@ def about(request):
 	return render(request, 'reviews/about.html', {'title':'About Us'})
 
 def contact(request):
-	return render(request, 'reviews/contact.html', {'title':'Contact Us'})
+	form = ContactForm()
+	return render(request, 'reviews/contact.html', {'title':'Contact Us','form':form})
 
 class ProductListView(ListView):
 	model = Product
